@@ -1,4 +1,4 @@
-Spree Billet
+Spree Billet [![Build Status](https://travis-ci.org/zaeznet/spree_zaez_billet.svg?branch=master)](https://travis-ci.org/zaeznet/spree_zaez_billet)
 ===============
 
 Extension to add the functionalities of billets to Spree Commerce.
