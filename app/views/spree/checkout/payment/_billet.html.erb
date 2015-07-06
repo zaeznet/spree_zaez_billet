@@ -1,0 +1,4 @@
+<% param_prefix = "payment_source[#{payment_method.id}]" %>
+<%= hidden_field_tag "#{param_prefix}[order_id]", @order.id %>
+<%= hidden_field_tag "#{param_prefix}[user_id]", @order.user_id %>
+<%= hidden_field_tag "#{param_prefix}[status]", Spree::BilletConfig.registered ? 'waiting_registry' : 'pending' %>

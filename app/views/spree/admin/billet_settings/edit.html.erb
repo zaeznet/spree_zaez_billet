@@ -1,0 +1,154 @@
+<%= render :partial => 'spree/admin/shared/sub_menu/configuration' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:billet_settings) %>
+<% end %>
+
+<%= form_tag admin_billet_settings_path, :method => :put  do |form| %>
+    <div id="billet_preferences" data-hook="billet_preferences">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            <%= Spree.t(:settings) %>
+          </h1>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= label_tag(:corporate_name, Spree.t(:corporate_name) + ': ') + tag(:br) %>
+              <%= text_field_tag :corporate_name, @config.corporate_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= label_tag(:document, Spree.t(:document) + ': ') + tag(:br) %>
+              <%= text_field_tag :document, @config.document, class: 'form-control' %>
+            </div>
+            <div class="col-sm-8">
+              <%= label_tag(:address, Spree.t(:address) + ': ') + tag(:br) %>
+              <%= text_field_tag :address, @config.address, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= check_box_tag :registered, true, @config.registered %>
+              <%= label_tag(:registered) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= label_tag(:shipping_number, Spree.t(:shipping_number) + ': ') + tag(:br) %>
+              <%= text_field_tag :shipping_number, @config.shipping_number, class: 'form-control', disabled: true %>
+            </div>
+            <div class="col-sm-4">
+              <%= label_tag(:clear_shipping_number, ' ') + tag(:br) %>
+              <%= link_to_with_icon 'trash', Spree.t(:clear_shipping_number), admin_clear_shipping_url, class: 'btn btn-warning',
+                                                                                                        id: 'clear_shipping' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= label_tag(:bank, Spree.t(:bank) + ': ') + tag(:br) %>
+              <%= select_tag :bank,
+                             options_for_select(@banks.collect { |item| [Spree.t("bank_#{item}"), item] }, @config.bank),
+                             class: 'select2', include_blank: true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= label_tag(:agency, Spree.t(:agency) + ': ') + tag(:br) %>
+              <%= text_field_tag :agency, @config.agency, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4">
+              <%= label_tag(:account, Spree.t(:account) + ': ') + tag(:br) %>
+              <%= text_field_tag :account, @config.account, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="account_digit_box">
+              <%= label_tag(:account_digit, Spree.t(:account_digit) + ': ') + tag(:br) %>
+              <%= text_field_tag :account_digit, @config.account_digit, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="agreement_box">
+              <%= label_tag(:agreement, Spree.t(:agreement) + ': ') + tag(:br) %>
+              <%= text_field_tag :agreement, @config.agreement, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="wallet_box">
+              <%= label_tag(:wallet, Spree.t(:wallet) + ': ') + tag(:br) %>
+              <%= text_field_tag :wallet, @config.wallet, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="variation_wallet_box">
+              <%= label_tag(:variation_wallet, Spree.t(:variation_wallet) + ': ') + tag(:br) %>
+              <%= text_field_tag :variation_wallet, @config.variation_wallet, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="app_version_box">
+              <%= label_tag(:app_version, Spree.t(:app_version) + ': ') + tag(:br) %>
+              <%= text_field_tag :app_version, @config.app_version, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="company_code_box">
+              <%= label_tag(:company_code, Spree.t(:company_code) + ': ') + tag(:br) %>
+              <%= text_field_tag :company_code, @config.company_code, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="byte_idt_box">
+              <%= label_tag(:byte_idt, Spree.t(:byte_idt) + ': ') + tag(:br) %>
+              <%= text_field_tag :byte_idt, @config.byte_idt, class: 'form-control' %>
+            </div>
+            <div class="col-sm-4" id="office_code_box">
+              <%= label_tag(:office_code, Spree.t(:office_code) + ': ') + tag(:br) %>
+              <%= text_field_tag :office_code, @config.office_code, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= label_tag(:due_date, Spree.t(:due_date) + ': ') + tag(:br) %>
+              <%= number_field_tag :due_date, @config.due_date, class: 'form-control' %>
+            </div>
+            <div class="col-sm-8">
+              <%= label_tag(:acceptance, Spree.t(:acceptance) + ': ') + tag(:br) %>
+              <%= radio_button_tag :acceptance, 'S', @config.acceptance == 'S' %>
+              <%= label_tag(:acceptance_s, Spree.t(:yes)) %>
+              <%= radio_button_tag :acceptance, 'N', @config.acceptance == 'N' %>
+              <%= label_tag(:acceptance_n, Spree.t(:no)) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <%= label_tag(:instruction_1, Spree.t(:instruction_1) + ': ') + tag(:br) %>
+              <%= text_field_tag :instruction_1, @config.instruction_1, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6">
+              <%= label_tag(:instruction_2, Spree.t(:instruction_2) + ': ') + tag(:br) %>
+              <%= text_field_tag :instruction_2, @config.instruction_2, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6">
+              <%= label_tag(:instruction_3, Spree.t(:instruction_3) + ': ') + tag(:br) %>
+              <%= text_field_tag :instruction_3, @config.instruction_3, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6">
+              <%= label_tag(:instruction_4, Spree.t(:instruction_4) + ': ') + tag(:br) %>
+              <%= text_field_tag :instruction_4, @config.instruction_4, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6">
+              <%= label_tag(:instruction_5, Spree.t(:instruction_5) + ': ') + tag(:br) %>
+              <%= text_field_tag :instruction_5, @config.instruction_5, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6">
+              <%= label_tag(:instruction_6, Spree.t(:instruction_6) + ': ') + tag(:br) %>
+              <%= text_field_tag :instruction_6, @config.instruction_6, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= label_tag(:doc_customer_attr, Spree.t(:doc_customer_attr) + ': ') + tag(:br) %>
+              <%= select_tag :doc_customer_attr,
+                             options_for_select(@user_attr.collect { |item| [Spree.t(item), item] }, @config.doc_customer_attr),
+                             class: 'select2', include_blank: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render partial: 'spree/admin/shared/edit_resource_links', locals: { collection_url: edit_admin_billet_settings_url } %>
+<% end %>
+
+<script type="text/javascript">
+    new window.BilletSetting();
+</script>

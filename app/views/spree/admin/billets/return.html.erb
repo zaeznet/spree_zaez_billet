@@ -1,0 +1,40 @@
+<%= render :partial => 'spree/admin/shared/sub_menu/payment' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:billet_return) %>
+<% end %>
+
+<%= form_for admin_billets_return_info_path, url: admin_billets_return_info_path, method: 'post', html: { multipart: true } do %>
+    <div id="billets_return" data-hook="billets_return">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            <%= Spree.t(:billet_return_info) %>
+          </h1>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6">
+              <%= label_tag :file_type, Spree.t(:file_type) + ': ' %>
+              <br />
+              <%= radio_button_tag :file_type, :cnab240, false, required: true %>
+              <%= label_tag :file_type_cnab240, Spree.t(:cnab240) %>
+              <br />
+              <%= radio_button_tag :file_type, :cnab400, false, required: true %>
+              <%= label_tag :file_type_cnab400, Spree.t(:cnab400) %>
+              <br />
+              <%= radio_button_tag :file_type, :crb643, false, required: true %>
+              <%= label_tag :file_type_crb643, Spree.t(:CBR643) %>
+            </div>
+            <div class="col-xs-6">
+              <%= label_tag :file, Spree.t(:file) %>
+              <%= file_field_tag :file, required: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions" data-hook="buttons">
+      <%= button Spree.t('actions.continue'), 'ok', 'submit', {class: 'btn-success'} %>
+    </div>
+<% end %>

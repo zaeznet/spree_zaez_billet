@@ -1,0 +1,57 @@
+pt-BR:
+  billet_settings: Configurações Boleto
+  spree:
+    billet: Boleto
+    billet_settings: Configurações Boleto
+    payment_method_billet: Pagamento via Boleto
+    generate_billet: Gerar Boleto
+    bank: Banco
+    registered: Boletos Registrados
+    corporate_name: Nome do Cedente
+    document: Documento do Cedente
+    address: Endereço do Cedente
+    agency: Agência
+    account: Conta Corrente
+    wallet: Carteira
+    variation_wallet: Variação Carteira
+    account_digit: Dígito da Conta Corrente
+    app_version: Versão do Aplicativo
+    company_code: Código da Empresa
+    office_code: Código do Posto
+    byte_idt: Byte IDT
+    shipping_number: Sequencial de Remessa
+    clear_shipping_number: Zerar Sequencial
+    due_date: Dias para o Vencimento
+    acceptance: Aceite
+    instruction_1: 1a Instrução
+    instruction_2: 2a Instrução
+    instruction_3: 3a Instrução
+    instruction_4: 4a Instrução
+    instruction_5: 5a Instrução
+    instruction_6: 6a Instrução
+    bank_banco_brasil: Banco do Brasil
+    bank_itau: Itaú
+    bank_santander: Santander Banespa
+    bank_caixa: Caixa Econômica Federal
+    bank_hsbc: HSBC
+    bank_bradesco: Bradesco
+    bank_sicredi: Sicredi
+    doc_customer_attr: Atributo que Representa o Documento do Cliente
+    paid: Pago
+    paid_at: Pago em
+    waiting_registry: Aguardando Registro
+    billet_shipping: Remessa de Boletos
+    billet_return: Retorno de Boletos
+    register_billets: Registrar Boletos
+    billet_return_info: Informações sobre o retorno dos boletos
+    file: Arquivo
+    file_type: Tipo de Arquivo
+    cnab240: CNAB240
+    cnab400: CNAB400
+    cbr643: CBR643
+    there_is_not_return_in_file: Não há nenhum boleto pago no retorno.
+    errors:
+      there_are_not_any_billets_to_registry: Não há nenhum boleto para registrar.
+      invalid_billets: Os títulos são inválidos!
+      billet_bank_not_implemented: O Banco selecionado ainda não foi implementado!
+      error_in_billets_return: Ocorreu um erro na leitura do arquivo retorno!

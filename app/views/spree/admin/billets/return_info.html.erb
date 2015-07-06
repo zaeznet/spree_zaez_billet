@@ -1,0 +1,32 @@
+<%= render :partial => 'spree/admin/shared/sub_menu/payment' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:billet_return) %>
+<% end %>
+
+<% if @lines.present? %>
+    <table class="table" id="listing_returned_billets" data-hook="listing_returned_billets">
+      <thead>
+      <tr data-hook="admin_returned_billets_headers">
+        <th><%= Spree.t(:document_number) %></th>
+        <th><%= Spree.t(:value) %></th>
+        <th><%= Spree.t(:paid_at) %></th>
+        <th><%= Spree.t(:order) %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @lines.each do |line| %>
+          <tr data-hook="admin_returned_billets_rows" class="<%= cycle('odd', 'even') %>">
+            <td><%= link_to line[:document_number], spree.admin_order_payment_path(line[:order_id], line[:document_number]) %></td>
+            <td><%= line[:value].to_html %></td>
+            <td><%= line[:paid_at].strftime(t('date.formats.default')) %></td>
+            <td><%= link_to line[:order_number], spree.edit_admin_order_path(line[:order_id]) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <div class="alert alert-info no-objects-found">
+      <%= Spree.t(:there_is_not_return_in_file) %>
+    </div>
+<% end %>

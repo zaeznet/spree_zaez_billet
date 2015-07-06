@@ -1,0 +1,58 @@
+en:
+  billet_settings: Billet Settings
+  spree:
+    billet: Billet
+    billet_settings: Billet Settings
+    payment_method_billet: Payment by Billet
+    generate_billet: Generate Billet
+    bank: Bank
+    registered: Registered Billet
+    corporate_name: Corporate Name
+    document: Document (CPF/CNPJ)
+    address: Company's Address
+    agency: Agency
+    account: Account
+    agreement:
+    wallet: Wallet
+    variation_wallet: Variation Wallet
+    account_digit: Account Digit
+    app_version: App Version
+    company_code: Company Code
+    office_code: Office Code
+    byte_idt: Byte IDT
+    shipping_number: Shipping Number
+    clear_shipping_number: Clear Number
+    due_date: Due Date
+    acceptance: Acceptance
+    instruction_1: 1st Instruction
+    instruction_2: 2nd Instruction
+    instruction_3: 3rd Instruction
+    instruction_4: 4th Instruction
+    instruction_5: 5th Instruction
+    instruction_6: 6th Instruction
+    bank_banco_brasil: Banco do Brasil
+    bank_itau: Itaú
+    bank_santander: Santander Banespa
+    bank_caixa: Caixa Econômica Federal
+    bank_hsbc: HSBC
+    bank_bradesco: Bradesco
+    bank_sicredi: Sicredi
+    doc_customer_attr: Document Customer Attribute
+    paid: Paid
+    paid_at: Paid at
+    waiting_registry: Waiting Registry
+    billet_shipping: Billet Shipping
+    billet_return: Billet Return
+    register_billets: Register Billets
+    billet_return_info: Information of billets return
+    file: File
+    file_type: File Type
+    cnab240: CNAB240
+    cnab400: CNAB400
+    cbr643: CBR643
+    there_is_not_return_in_file: There is not return in attached file.
+    errors:
+      there_are_not_any_billets_to_registry: There are not any billets to registry.
+      invalid_billets: The billets are invalid!
+      billet_bank_not_implemented: The Bank selected in settings is not implemented!
+      error_in_billets_return: An error ocurred in file read!

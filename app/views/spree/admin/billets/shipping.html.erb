@@ -1,0 +1,39 @@
+<%= render :partial => 'spree/admin/shared/sub_menu/payment' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:billet_shipping) %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <%= button_link_to Spree.t(:register_billets), spree.admin_billets_register_path, class: 'btn-success', icon: 'download-alt',
+                                                                                      id: 'register_billets', method: 'post' %>
+<% end if @billets.present? %>
+
+<% if @billets.present? %>
+    <table class="table" id="listing_unregistered_billets" data-hook="listing_unregistered_billets">
+      <thead>
+      <tr data-hook="admin_billets_register_headers">
+        <th><%= Spree.t(:document_number) %></th>
+        <th><%= Spree.t(:customer) %></th>
+        <th><%= Spree.t(:amount) %></th>
+        <th><%= Spree.t(:created_at) %></th>
+        <th><%= Spree.t(:due_date) %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @billets.each do |billet| %>
+          <tr data-hook="admin_billets_register_rows" class="<%= cycle('odd', 'even') %>">
+            <td><%= link_to billet.document_number, spree.admin_order_payment_path(billet.order_id, billet.payment.id) %></td>
+            <td><%= billet.customer_name %></td>
+            <td><%= billet.display_amount.to_html %></td>
+            <td><%= billet.created_at.strftime(t('date.formats.default')) %></td>
+            <td><%= billet.due_date.strftime(t('date.formats.default')) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <div class="alert alert-info no-objects-found">
+      <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Billet)) %>
+    </div>
+<% end %>

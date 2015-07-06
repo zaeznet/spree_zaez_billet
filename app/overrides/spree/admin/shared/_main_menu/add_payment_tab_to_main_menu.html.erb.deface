@@ -1,0 +1,6 @@
+<!-- insert_before "erb[silent]:contains('if can? :admin, Spree::Product')" -->
+<% if can? :admin, Spree::Payment %>
+    <ul class="nav nav-sidebar">
+      <%= main_menu_tree Spree.t(:payments), icon: "usd", sub_menu: "payment", url: "#sidebar-payment" %>
+    </ul>
+<% end %>
