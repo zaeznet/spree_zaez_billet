@@ -11,7 +11,7 @@ Installation
 Add spree_zaez_billet to your Gemfile:
 
 ```ruby
-gem 'spree_zaez_billet'
+gem 'spree_zaez_billet', gtihub: 'zaeznet/spree_zaez_billet'
 ```
 
 Bundle your dependencies and run the installation generator:
