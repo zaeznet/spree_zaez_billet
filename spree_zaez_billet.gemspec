@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_zaez_billet'
-  s.version     = '3.0.2'
+  s.version     = '3.0.3'
   s.summary     = 'Adds Billet as a Payment Method to Spree Commerce'
   s.description = s.summary
   s.required_ruby_version = '>= 2.0.0'
