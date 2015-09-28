@@ -22,8 +22,8 @@ class Spree::Admin::BilletsController < Spree::Admin::BaseController
     end
   end
 
-  # def return
-  # end
+  def return
+  end
 
   def return_info
     data = case params[:file_type].to_sym
@@ -55,7 +55,14 @@ class Spree::Admin::BilletsController < Spree::Admin::BaseController
                      order_number: payment.order.number})
       end
     end
-  # rescue
-  #   flash[:error] = Spree.t('errors.error_in_billets_return')
+  rescue
+    flash[:error] = Spree.t('errors.error_in_billets_return')
   end
+
+  private
+
+  def model_class
+    Spree::BilletsController
+  end
+
 end

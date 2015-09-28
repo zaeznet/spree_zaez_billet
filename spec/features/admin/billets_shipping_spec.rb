@@ -11,7 +11,7 @@ describe 'Billets Shipping', type: :feature do
 
     visit spree.admin_billets_shipping_path
 
-    expect(page).to have_text 'No Billet found'
+    expect(page).to have_text 'No Billets found'
     expect(page).not_to have_button 'Register Billets'
   end
 

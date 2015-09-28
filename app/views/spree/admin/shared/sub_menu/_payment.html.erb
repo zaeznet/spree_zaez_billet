@@ -1,4 +1,4 @@
 <ul id="sidebar-payment" class="collapse nav nav-pills nav-stacked" data-hook="admin_payment_sub_tabs">
-  <%= tab :billets_shipping %>
-  <%= tab :billets_return %>
+  <%= tab :billets_shipping if can? :shipping, Spree::BilletsController %>
+  <%= tab :billets_return if can? :return, Spree::BilletsController %>
 </ul>

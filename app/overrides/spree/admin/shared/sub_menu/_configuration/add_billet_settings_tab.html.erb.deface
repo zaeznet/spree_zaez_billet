@@ -1,2 +1,2 @@
 <!-- insert_bottom "[data-hook='admin_configurations_sidebar_menu'], #admin_configurations_sidebar_menu[data-hook]" -->
-<%= configurations_sidebar_menu_item t(:billet_settings), edit_admin_billet_settings_path %>
+<%= configurations_sidebar_menu_item(t(:billet_settings), edit_admin_billet_settings_path) if can? :manage, :billet_settings %>
