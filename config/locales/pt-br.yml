@@ -1,5 +1,10 @@
 pt-BR:
   billet_settings: Configurações Boleto
+  activerecord:
+    models:
+      spree/billet:
+        one: Boleto
+        other:  Boletos
   spree:
     billet: Boleto
     billet_settings: Configurações Boleto

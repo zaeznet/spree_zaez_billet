@@ -1,5 +1,10 @@
 en:
   billet_settings: Billet Settings
+  activerecord:
+    models:
+      spree/billet:
+        one: Billet
+        other: Billets
   spree:
     billet: Billet
     billet_settings: Billet Settings
