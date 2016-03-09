@@ -79,5 +79,22 @@ module Spree
     rescue
       ActiveMerchant::Billing::Response.new(false, 'Billet Method: Failed when try void', {}, {})
     end
+
+    # Cancel the payment
+    # modifying the status of the source (Spree::Billet)
+    #
+    # @author Isabella Santos
+    #
+    # @return [ActiveMerchant::Billing::Response]
+    #
+    def cancel(response_code)
+      billet = Spree::Billet.find_by document_number: response_code
+      billet.status = 'void'
+      billet.save
+
+      ActiveMerchant::Billing::Response.new(true, 'Billet Method: Successfully canceled', {}, authorization: response_code)
+    rescue
+      ActiveMerchant::Billing::Response.new(false, 'Billet Method: Failed when try cancel', {}, {})
+    end
   end
 end
