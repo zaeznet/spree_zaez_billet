@@ -228,7 +228,7 @@ describe Spree::Billet do
       expect(document.sacado_documento).to eq billet.user.attributes[Spree::BilletConfig.doc_customer_attr]
       expect(document.sacado_endereco).to eq order.bill_address.full_address
       expect(document.numero_documento).to eq '00001'   # 5 posicoes quando o convenio tem 6 digitos para BB
-      expect(document.dias_vencimento).to eq 5          # dias padrão
+      expect(document.data_vencimento).to eq(Date.today + Spree::BilletConfig.due_date.days)
       expect(document.data_documento).to eq Date.today
       expect(document.valor).to eq 10.0
       expect(document.aceite).to eq 'N'
