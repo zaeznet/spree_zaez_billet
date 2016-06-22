@@ -2,10 +2,16 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_zaez_billet'
-  s.version     = '3.0.3'
+  s.version     = '3.0.4.1'
   s.summary     = 'Adds Billet as a Payment Method to Spree Commerce'
   s.description = s.summary
-  s.required_ruby_version = '>= 2.0.0'
+
+  begin
+    require 'ruby_dep/travis'
+    s.required_ruby_version = RubyDep::Travis.new.version_constraint
+  rescue LoadError
+    abort "Install 'ruby_dep' gem before building this gem"
+  end
 
   s.author    = 'Zaez Team'
   s.email     = 'contato@zaez.net'
@@ -17,7 +23,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 3.0.0'
-  s.add_dependency 'brcobranca', '~> 4.1.0'
+  s.add_dependency 'brcobranca', '~> 6.4.0'
 
   s.add_development_dependency 'poltergeist', '~> 1.5.0'
   s.add_development_dependency 'capybara', '~> 2.4'
@@ -35,4 +41,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-bundler'
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'guard-shell'
+  s.add_development_dependency 'ruby_dep', '~> 1.2'
 end

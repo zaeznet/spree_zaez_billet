@@ -87,6 +87,7 @@ module Spree
     def generate_document
       config = Spree::BilletConfig
       doc_user = user.attributes[config.doc_customer_attr] rescue ''
+      due_date = Date.today + config.due_date.days
 
       params = {cedente: config.corporate_name,
                 documento_cedente: config.document,
@@ -95,7 +96,7 @@ module Spree
                 sacado_documento: doc_user,
                 sacado_endereco: order.bill_address.full_address,
                 numero_documento: document_number,
-                dias_vencimento: config.due_date,
+                data_vencimento: due_date,
                 data_documento: Date.parse(created_at.to_s),
                 valor: amount,
                 aceite: config.acceptance,
